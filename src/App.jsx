@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { CssBaseline, AppBar, Box, Typography, Button, Avatar, Popover, IconButton, Drawer, List, ListItem, ListItemText, ListItemButton, Divider } from '@mui/material'
+import Home from './pages/Home'
+
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu'
-import Home from './pages/Home'
-import { Css } from '@mui/icons-material';
+
+import Logo from './../src/assets/logo.png'
 
 function App() {
 
@@ -22,7 +24,7 @@ function App() {
               <IconButton sx={{ display: { xs: 'block', md: 'none' } }} onClick={() => setIsDrawer(true)}>
                 <MenuIcon sx={{ color: 'green' }} />
               </IconButton>
-              <Avatar variant='square' sx={{ width: '10rem', height: '100%', display: { xs: 'none', md: 'block' } }} src='./../src/assets/logo.png'></Avatar>
+              <Avatar variant='square' sx={{ width: '10rem', height: '100%', display: { xs: 'none', md: 'block' } }} src={Logo}/>
               <IconButton sx={appbar_bt}>
                 <HomeIcon />
                 <Typography>หน้าหลัก</Typography>
