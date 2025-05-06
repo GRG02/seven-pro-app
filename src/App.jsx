@@ -4,7 +4,7 @@ import { CssBaseline, AppBar, Box, Typography, Button, Avatar, Popover, IconButt
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu'
-import Home from './pages/home'
+import Home from './pages/Home'
 import { Css } from '@mui/icons-material';
 
 function App() {
