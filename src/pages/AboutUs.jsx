@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Container, Divider } from '@mui/material';
-import Logo from './../src/assets/logo.png'
+import Logo from "./../assets/logo.png"
 
 function AboutUs() {
     return (
