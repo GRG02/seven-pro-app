@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Container, Divider } from '@mui/material';
-import Logo from '../assets/Logo.png'; // ปรับ path ให้ตรงกับตำแหน่งของรูปจริง
+import Logo from './../src/assets/logo.png'
 
 function AboutUs() {
     return (
