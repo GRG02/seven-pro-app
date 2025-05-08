@@ -17,9 +17,9 @@ function App() {
   return (
     <>
       <CssBaseline />
-      <Box sx={universal}>
+      <Box sx={{ ...universal, height: '100%', bgcolor: '' }}>
         <Box sx={{ height: '4.5rem' }}>
-          <AppBar sx={{ bgcolor: 'white', height: '4.5rem', display: 'flex', flexDirection: 'row', alignItems: 'center', ...universal }}>
+          <AppBar sx={{ bgcolor: 'white', height: '4.5rem', display: 'flex', flexDirection: 'row', alignItems: 'center', ...universal, }}>
             <Box sx={container}>
               <IconButton sx={{ display: { xs: 'block', md: 'none' } }} onClick={() => setIsDrawer(true)}>
                 <MenuIcon sx={{ color: 'green' }} />
@@ -87,7 +87,8 @@ const universal = {
     md: '10rem',
     lg: '20rem',
     xl: '25rem',
-  }
+  },
+  width: '100%',
 }
 
 const container = {
