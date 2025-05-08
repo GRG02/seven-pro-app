@@ -6,8 +6,11 @@ import Home from './pages/Home'
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu'
+import InfoIcon from '@mui/icons-material/Info';
 
 import Logo from './../src/assets/logo.png'
+import ShowPro from './pages/ShowPro';
+import AboutUs from './pages/AboutUs';
 
 function App() {
 
@@ -20,16 +23,20 @@ function App() {
       <Box sx={{ ...universal, height: '100%', bgcolor: '' }}>
         <Box sx={{ height: '4.5rem' }}>
           <AppBar sx={{ bgcolor: 'white', height: '4.5rem', display: 'flex', flexDirection: 'row', alignItems: 'center', ...universal, }}>
-            <Box sx={container}>
-              <IconButton sx={{ display: { xs: 'block', md: 'none' } }} onClick={() => setIsDrawer(true)}>
+            <Box sx={appbar_container}>
+              {/* <IconButton sx={{ display: { xs: 'block', md: 'none' } }} onClick={() => setIsDrawer(true)}>
                 <MenuIcon sx={{ color: 'green' }} />
-              </IconButton>
-              <Avatar variant='square' sx={{ width: '10rem', height: '100%', display: { xs: 'none', md: 'block' } }} src={Logo}/>
-              <IconButton sx={appbar_bt}>
+              </IconButton> */}
+              <Avatar variant='square' sx={{ width: '10rem', height: '100%' }} src={Logo} />
+              <IconButton sx={{ ...appbar_bt, ml: 'auto' }} onClick={() => { navigate('/') }}>
                 <HomeIcon />
                 <Typography>หน้าหลัก</Typography>
               </IconButton>
-              <IconButton sx={appbar_bt}>
+              <IconButton sx={{ ...appbar_bt }} onClick={() => { navigate('/aboutus') }}>
+                <InfoIcon />
+                <Typography sx={{ ml: 1 }}>เกี่ยวกับเรา</Typography>
+              </IconButton>
+              {/* <IconButton sx={appbar_bt}>
                 <MenuIcon />
                 <Typography>หน้าหลัก</Typography>
               </IconButton>
@@ -40,12 +47,12 @@ function App() {
               <IconButton sx={{ ...appbar_bt, ml: 'auto' }}>
                 <AccountCircleIcon />
                 <Typography>DevMode</Typography>
-              </IconButton>
+              </IconButton> */}
             </Box>
           </AppBar>
         </Box>
 
-        <Drawer anchor="left" open={isDrawer} onClose={() => setIsDrawer(false)}>
+        {/* <Drawer anchor="left" open={isDrawer} onClose={() => setIsDrawer(false)}>
           <Box sx={{ width: 500 }} role="presentation" onClick={() => setIsDrawer(false)}>
 
             <List>
@@ -66,11 +73,13 @@ function App() {
               </ListItem>
             </List>
           </Box>
-        </Drawer>
+        </Drawer> */}
 
         <Box>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/showpro/:poster_id' element={<ShowPro />} />
+            <Route path='/aboutus/' element={<AboutUs />} />
           </Routes>
         </Box>
       </Box>
@@ -91,13 +100,12 @@ const universal = {
   width: '100%',
 }
 
-const container = {
+const appbar_container = {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   gap: '0.5rem',
   width: '100%',
-  // bgcolor: 'blue'
 }
 
 const appbar_bt = {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Avatar, Box, Grid, Paper, Typography } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -16,6 +17,8 @@ import axios from 'axios';
 function Home() {
 
     const [media, setMedia] = useState([]);
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         const getAllImages = async () => {
@@ -73,7 +76,7 @@ function Home() {
                     <Grid container spacing={2} sx={{ width: '100%', mt: '2rem' }}>
                         {posterImages.map((item) => (
                             <Grid item key={item.poster_id} size={{ xs: 6, sm: 6, md: 4, lg: 4, xl: 3 }}>
-                                <Paper elevation={5} sx={poster_paper}>
+                                <Paper elevation={5} sx={poster_paper} onClick={() => navigate(`/showpro/${item.poster_id}`)}>
                                     <Box
                                         component="img"
                                         src={`https://slrjrfzzgnjpsxcruorv.supabase.co/storage/v1/object/public/seven-img/poster/${item.poster_img}`}
@@ -115,7 +118,13 @@ function Home() {
                                         width: '100%',
                                         aspectRatio: '1 / 1', // ทำให้สูง-ต่ำสัมพันธ์กับความกว้าง
                                         objectFit: 'fill',
+                                        cursor: 'pointer',
+                                        '&:hover': {
+                                            transform: 'scale(0.97)',
+                                            transition: '0.5s ease-in-out'
+                                        },
                                     }}
+                                    onClick={() => navigate(`/showpro/${item.poster_id}`)}
                                 />
                             </SwiperSlide>
                         ))}
@@ -146,6 +155,5 @@ const poster_paper = {
         transform: 'scale(0.97)',
         transition: '0.5s ease-in-out'
     },
-    borderRadius: '25px',
-    overflow: 'hidden'
+    overflow: 'hidden',
 }
